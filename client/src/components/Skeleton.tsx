@@ -1,20 +1,16 @@
+import Item from "./Item"
 
 function Skeleton() {
   return (
     <div 
-    className="flex flex-row items-center justify-between  shadow animate-pulse"
+    className="flex flex-row items-center justify-between  shadow animate-pulse gap-2"
     role="status"
     >
-    <div  
-    className="max-w-md w-8/12 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded dark:divide-gray-700 md:p-6 dark:border-gray-700"
-    >
+    <div className="max-w-md w-96 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded dark:divide-gray-700 md:p-6 dark:border-gray-700">
         <div 
         className="flex items-center justify-between"
         >
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            </div>
+            <Item />
             <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
         </div>
         <div className="flex items-center justify-between pt-4">
@@ -50,7 +46,7 @@ function Skeleton() {
         </div>
         <span className="sr-only">Loading...</span>
     </div>
-    <div className="flex items-center justify-center w-3/12 h-56 bg-gray-300 rounded dark:bg-gray-700"
+    <div className="flex items-center justify-center w-56 h-56 bg-gray-300 rounded dark:bg-gray-700"
     >
         <svg 
         className="w-96 h-10 text-gray-200 dark:text-gray-600" 

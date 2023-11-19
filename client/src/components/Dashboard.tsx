@@ -1,11 +1,13 @@
-import Skeleton from "./Skeleton"
+import Accordion from "./Accordion"
+import Map from "./Map"
 
 function Dashboard({display, setDisplay}) {
 
     
   return (
     <div className={`w-full h-96  ${display ? 'flex' :'hidden' }`}>
-        <Skeleton />
+        <Accordion />
+        <Map />
     </div>
 
     
