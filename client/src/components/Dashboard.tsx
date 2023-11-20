@@ -33,9 +33,15 @@ const governmentAndSymbols_mock = {
 const latlng = [-2, 13];
 
 const numericData = {
-  "area": 272967,
-  "gini": 39.8,
-  "population": 20903278
+  area: 272967,
+  gini: 39.8,
+  population: 20903278,
+}
+
+  const booleanData = {
+    independent: true,
+    unMember: false,
+    landLocked: true,
 }
 /*
 
@@ -46,7 +52,7 @@ function Dashboard({display} : {display: boolean}) {
     
   return (
     <div className={` min-w-full h-full ${display ? 'flex' :'hidden' } flex-col`}>
-      <Insights data={numericData} />
+      <Insights data={numericData} booleans={booleanData} name={generalInfo_mock.name}/>
       <div className="flex flex-row gap-6 justify-center mt-6">
         <Accordion generalInfo={generalInfo_mock} demograInfo={demograInfo_mock} governmentAndSymbols={governmentAndSymbols_mock} />
         <Map latlng={latlng} name={generalInfo_mock.name} />

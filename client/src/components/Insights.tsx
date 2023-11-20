@@ -1,18 +1,15 @@
 import Badge from "./Badge"
 import ProgressBar from "./ProgressBar"
 
-function Insights({data}: {data: object}) {
-    console.log(data)
+function Insights({data, booleans, name}: {data: object, name: string, booleans: object}) {
   return (
     <div className="flex flex-col gap-2 items-center">
     <div className="w-2/5 flex items-center justify-evenly">
         <div className="flex items-center">
             <img className=" w-10 h-10 bg-blue-100 text-blue-800 text-sm font-semibold inline-flex items-center rounded-lg dark:bg-blue-200 dark:text-blue-800" src="https://flagcdn.com/bf.svg" />
-            <p className="ms-2 font-medium text-gray-900 dark:text-white">Brazil</p>
+            <p className="ms-2 font-medium text-gray-900 dark:text-white">{name}</p>
         </div>
-        <Badge isTrue={true} text="Independent" />
-        <Badge isTrue={false} text="unMember" />
-        <Badge isTrue={true} text="landLocked" />
+        {Object.entries(booleans).map(([key, value]) => <Badge key={key} isTrue={value} text={key} /> )}
 
 
     </div>

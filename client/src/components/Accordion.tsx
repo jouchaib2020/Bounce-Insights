@@ -3,7 +3,8 @@ import AccordionItem from "./AccordionItem"
 
 
 
-function Accordion({generalInfo, demograInfo, governmentAndSymbols}) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function Accordion({generalInfo, demograInfo, governmentAndSymbols} : {generalInfo: any, demograInfo: any, governmentAndSymbols: any}) {
   return (
     
 <div className="w-5/12">
