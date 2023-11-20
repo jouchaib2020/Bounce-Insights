@@ -31,7 +31,7 @@ function AccordionItem({type, title, data}: {type: number, title: string, data: 
             </button>
         </h2>
         <div 
-        className={`${activeIndex ? 'hidden': ''}`} 
+        className={`${activeIndex ? '': 'hidden'}`} 
         >
             <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
             
