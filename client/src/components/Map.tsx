@@ -1,7 +1,5 @@
 import GoogleMap from 'google-map-react';
 
-const AnyReactComponent = ({ text }) => <div className='bg-black'>{text}</div>;
-
 
 export default function Map({latlng, name}: {latlng: number[]; name: string}){
   const defaultProps = {
@@ -12,7 +10,8 @@ export default function Map({latlng, name}: {latlng: number[]; name: string}){
     zoom: 5, 
   };
 
-  function renderMarkers(map, maps) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function renderMarkers(map : any, maps: any) {
     return new maps.Marker({
       position:  {
         lat: latlng[1],
@@ -33,7 +32,7 @@ export default function Map({latlng, name}: {latlng: number[]; name: string}){
   }
 
   return (
-    <div className='w-4/12 h-full border border-gray-600 rounded-lg p-1'>
+    <div className='w-4/12 h-96 border border-gray-600 rounded-lg p-1'>
       <GoogleMap
         bootstrapURLKeys={{ key: "AIzaSyCfRAhw-Oz4a_uL9gmGQxeNE--vLIQ261w"}}
         onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
@@ -41,11 +40,6 @@ export default function Map({latlng, name}: {latlng: number[]; name: string}){
         zoom={defaultProps.zoom}
         options={createMapOptions}
       >
-        <AnyReactComponent
-          lat={59.955413}
-          lng={30.337844}
-          text="My AAAAAAAAAAAAAA"
-        />
       </GoogleMap>
     </div>
   );

@@ -1,4 +1,5 @@
 import Accordion from "./Accordion";
+import Insights from "./Insights";
 import Map from "./Map";
 
 const generalInfo_mock = {
@@ -31,13 +32,25 @@ const governmentAndSymbols_mock = {
 
 const latlng = [-2, 13];
 
+const numericData = {
+  "area": 272967,
+  "gini": 39.8,
+  "population": 20903278
+}
+/*
 
-function Dashboard({display, setDisplay}) {
+*/
+
+
+function Dashboard({display} : {display: boolean}) {
     
   return (
-    <div className={` min-w-full h-96 ${display ? 'flex' :'hidden' } flex-row gap-5 justify-center`}>
+    <div className={` min-w-full h-full ${display ? 'flex' :'hidden' } flex-col`}>
+      <Insights data={numericData} />
+      <div className="flex flex-row gap-6 justify-center mt-6">
         <Accordion generalInfo={generalInfo_mock} demograInfo={demograInfo_mock} governmentAndSymbols={governmentAndSymbols_mock} />
         <Map latlng={latlng} name={generalInfo_mock.name} />
+      </div>
     </div>
 
     
