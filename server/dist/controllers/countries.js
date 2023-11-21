@@ -28,6 +28,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCountryByName = void 0;
+const utils_1 = require("../utils/utils");
 // mod.cjs
 const fetch = (...args) => Promise.resolve().then(() => __importStar(require('node-fetch'))).then(({ default: fetch }) => fetch(...args));
 const getCountryByName = async (req, res) => {
@@ -35,15 +36,14 @@ const getCountryByName = async (req, res) => {
         // Fetch the countries from the API
         const { name } = req.params;
         const response = await fetch(`https://restcountries.com/v3.1//name/${name}`);
-        console.log("fetch countries : ", response);
         if (response.ok) {
             // Parse the JSON response
-            const countries = await response.json();
-            // Get a random country from the array
-            const randomIndex = Math.floor(Math.random() * countries.length);
-            const randomCountry = countries[randomIndex];
+            const country = await response.json();
+            // struct the response to what is expected from the client
+            //console.log("fetch countries : ", country);
+            const countryResponse = (0, utils_1.mapCountryToCountryResponse)(country[0]);
             // Send the random country in the response
-            res.status(200).send(randomCountry);
+            res.status(200).send(countryResponse);
         }
         else {
             // Handle non-successful response (e.g., 404 Not Found)
