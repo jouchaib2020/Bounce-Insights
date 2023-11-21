@@ -16,5 +16,5 @@ app.use((0, cors_1.default)({ origin: allowedOrigins, credentials: true }));
 app.use((0, helmet_1.default)());
 app.use(express_1.default.json({ limit: "50mb" }));
 // Assign routes
-app.use("/", router_1.default);
+app.use("/api", router_1.default);
 exports.default = app;

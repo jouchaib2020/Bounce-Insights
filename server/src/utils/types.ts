@@ -1,6 +1,6 @@
 
 type Gini = {
-    year: number,
+    year: string,
     value: number,
 }
 
@@ -10,6 +10,11 @@ type Name = {
     nativeName: object,
  }
 
+type flags = {
+    svg: string,
+    png: string,
+    alt: string,
+}
 export type Country = {
     name: Name,
     tld: Array<string>,
@@ -41,7 +46,7 @@ export type Country = {
     car: object,
     timezones:  Array<string>,
     continents: Array<string>,
-    flags: Array<string>,
+    flags: flags,
     coatOfArms: Array<string>,
     startOfWeek: string,
     capitalInfo: object,
@@ -60,6 +65,7 @@ export type CountryResponse = {
     numeric: {
         population: number,
         area: number,
+        gini: number | string
     },
     boolean: {
         landlocked: boolean,

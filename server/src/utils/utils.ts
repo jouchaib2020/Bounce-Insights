@@ -1,11 +1,11 @@
-import { Country, CountryResponse } from "../types";
+import { Country, CountryResponse } from "./types";
 
 export function mapCountryToCountryResponse(country: Country): CountryResponse {
-    console.log("mapCountryToCountryResponse : ", country);
+    console.log("mapCountryToCountryResponse : ", country.gini);
     return {
       general: {
         name: country.name.common,
-        flag: country.flag,
+        flag: country.flags.png,
         region: country.region,
         subregion: country.subregion,
         independent: country.independent,
@@ -15,6 +15,7 @@ export function mapCountryToCountryResponse(country: Country): CountryResponse {
       numeric: {
         population: country.population,
         area: country.area,
+        gini: Object.values(country.gini)[0],
       },
       boolean: {
         landlocked: country.landlocked,

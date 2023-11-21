@@ -1,5 +1,5 @@
 // constants file
-export const API_URL = 'http://localhost:3000';
+export const API_URL = 'http://localhost:3001/api';
 
 export const HIGHEST_POPULATION = 1428627663;
 

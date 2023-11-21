@@ -5,7 +5,7 @@
 
 // Path: server/src/controllers/countries.ts
 import { Request, Response } from "express";
-import { Country } from "../types";
+import { Country } from "../utils/types";
 import { mapCountryToCountryResponse } from "../utils/utils";
 // mod.cjs
 const fetch = (...args: string[]) => import('node-fetch').then(({default: fetch}) => fetch(...args));

@@ -4,8 +4,8 @@ import GoogleMap from 'google-map-react';
 export default function Map({latlng, name}: {latlng: number[]; name: string}){
   const defaultProps = {
     center: {
-      lat: latlng[1],
-      lng: latlng[0],
+      lat: latlng[0],
+      lng: latlng[1],
     },
     zoom: 5, 
   };
@@ -13,10 +13,7 @@ export default function Map({latlng, name}: {latlng: number[]; name: string}){
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function renderMarkers(map : any, maps: any) {
     return new maps.Marker({
-      position:  {
-        lat: latlng[1],
-        lng: latlng[0],
-      },
+      position: defaultProps.center,
       map,
       title: name,
     });

@@ -1,4 +1,4 @@
-import { HIGHEST_AREA, HIGHEST_GINI, HIGHEST_POPULATION } from "../constants";
+import { HIGHEST_AREA, HIGHEST_GINI, HIGHEST_POPULATION } from "../utils/constants";
 
 function ProgressBar({title, value}: {title: string, value: number}) {
     const width = title === "area" ? value * 100 / HIGHEST_AREA : 

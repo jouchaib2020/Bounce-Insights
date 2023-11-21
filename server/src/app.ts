@@ -15,6 +15,6 @@ app.use(cors({origin: allowedOrigins, credentials:true}));
 app.use(helmet());
 app.use(express.json({ limit: "50mb" }));
 // Assign routes
-app.use("/", router);
+app.use("/api", router);
 
 export default app;
