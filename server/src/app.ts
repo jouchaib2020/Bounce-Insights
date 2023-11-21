@@ -1,8 +1,9 @@
 // Configure Express App Instance
-const express = require("express");
-const cors = require("cors");
-const helmet = require("helmet");
-const router = require("./routes/router");
+import cors from 'cors';
+import express from 'express';
+import helmet from 'helmet';
+import router from './routes/router';
+
 const app = express();
 
 const dotenv = require('dotenv');
@@ -16,4 +17,4 @@ app.use(express.json({ limit: "50mb" }));
 // Assign routes
 app.use("/", router);
 
-module.exports = app;
+export default app;
