@@ -11,7 +11,7 @@ const router_1 = __importDefault(require("./routes/router"));
 const app = (0, express_1.default)();
 const dotenv = require('dotenv');
 dotenv.config(); // Load the environment variables
-const allowedOrigins = ['http://127.0.0.1:5173', 'http://localhost:5174', 'http://localhost:5173'];
+const allowedOrigins = ['http://127.0.0.1:5173', 'http://localhost:5173'];
 app.use((0, cors_1.default)({ origin: allowedOrigins, credentials: true }));
 app.use((0, helmet_1.default)());
 app.use(express_1.default.json({ limit: "50mb" }));

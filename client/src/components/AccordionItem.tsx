@@ -1,14 +1,16 @@
 import { useState } from 'react';
+import { Demographic, General, Government } from '../utils/types';
 import { DemoraphicsInfo, GeneralInfo, GovernmentAndSymbols } from './Paragraphs';
 
 
 
 
-function AccordionItem({type, title, data}: {type: number, title: string, data: any}) {
-    const [activeIndex, setActiveIndex] = useState(null);
 
-    const handleToggle = (index) => {
-    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
+function AccordionItem({type, title, data}: {type: number, title: string, data: General | Demographic | Government}) {
+    const [activeIndex, setActiveIndex] = useState<number|null>(null);
+
+    const handleToggle = () => {
+    setActiveIndex((prevIndex) => (prevIndex === 1 ? null : 1));
   };
   return (
     <>
@@ -16,7 +18,7 @@ function AccordionItem({type, title, data}: {type: number, title: string, data: 
             <button 
             type="button" 
             className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3" 
-            onClick={() => handleToggle(1)}
+            onClick={() => handleToggle()}
             >
             <span>{title}</span>
             <svg 
@@ -35,9 +37,11 @@ function AccordionItem({type, title, data}: {type: number, title: string, data: 
         >
             <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
             
-            {type === 0 && <GeneralInfo generalInfo={data} />}
-            {type === 1 && <DemoraphicsInfo demograInfo={data} />}
-            {type === 2 && <GovernmentAndSymbols governmentAndSymbols={data} />}
+            {
+            type === 0 ? <GeneralInfo generalInfo={data as General} /> : 
+            type === 1 ? <DemoraphicsInfo demograInfo={data as Demographic} /> :
+            <GovernmentAndSymbols governmentAndSymbols={data as Government} />
+            }
             </div>
         </div>
   </>

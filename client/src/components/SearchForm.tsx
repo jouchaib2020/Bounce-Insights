@@ -1,17 +1,28 @@
 import React from 'react'
+import { getCountries } from '../api/api'
+import { CountryData } from '../utils/types'
 
-function SearchForm({ display, setDisplay, setSearch} : {display: boolean, setDisplay: (display: boolean) => void, setSearch: (search: string) => void}) {
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+function SearchForm({ setLoading, setCountryData} : {setLoading: (display: boolean) => void, setCountryData: (data: CountryData|undefined) => void}) {
+     
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setDisplay(!display)
-        setSearch(e.target[0].value)
+        const target = e.currentTarget[0] as HTMLInputElement
+        setLoading(true)
+        try {
+            const data = await getCountries(target.value)
+            setCountryData(data)
+            setLoading(false)
+        }catch (err) {
+            setCountryData(undefined)
+            setLoading(false)
+            console.log(err)
+        }
     }
     
     return (    
     <form 
     onSubmit={handleSubmit}
-    className="flex items-center p-6"
+    className="flex items-center p-6 transition-transform ease-in-out"
     >   
         <label 
         htmlFor="simple-search" 
@@ -37,13 +48,13 @@ function SearchForm({ display, setDisplay, setSearch} : {display: boolean, setDi
                 </div>
             <input type="text" id="simple-search" 
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-            placeholder="Search country name..." 
+            placeholder="Search country name ..." 
             required 
             />
         </div>
         <button 
         type="submit" 
-        className="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className=" inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
             Search
         </button>

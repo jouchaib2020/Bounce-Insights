@@ -1,7 +1,7 @@
 
 type Gini = {
-    year: string,
-    value: number,
+    year?: string,
+    value?: number,
 }
 
 type Name = {

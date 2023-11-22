@@ -1,12 +1,7 @@
-// define a function getRandomCountry that returns a random country by calling https://restcountries.com/#endpoints-name
-// and returning a random country from the response
-// the function should be exported
-// the function should be used in the GET /countries/random endpoint
 
-// Path: server/src/controllers/countries.ts
 import { Request, Response } from "express";
 import { Country } from "../utils/types";
-import { mapCountryToCountryResponse } from "../utils/utils";
+import { isCountryCode, mapCountryToCountryResponse } from "../utils/utils";
 // mod.cjs
 const fetch = (...args: string[]) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
@@ -14,7 +9,12 @@ export const getCountryByName = async (req: Request, res: Response) => {
     try {
         // Fetch the countries from the API
         const { name } = req.params;
-        const response = await fetch(`https://restcountries.com/v3.1//name/${name}`);
+        const URL = isCountryCode(name) ?
+          `https://restcountries.com/v3.1/alpha/${name}`:
+          `https://restcountries.com/v3.1/name/${name}?fullText=true`;
+
+        const response = await fetch(URL);
+
         if (response.ok) {
             // Parse the JSON response
             const country: Country[] = await response.json();
@@ -25,7 +25,7 @@ export const getCountryByName = async (req: Request, res: Response) => {
             res.status(200).send(countryResponse);
           } else {
             // Handle non-successful response (e.g., 404 Not Found)
-            res.status(response.status).send("Failed to fetch data from the API");
+            res.status(response.status).send("Failed to fetch data from the API: " + URL);
           }
     
       } catch (error) {

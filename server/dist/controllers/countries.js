@@ -1,8 +1,4 @@
 "use strict";
-// define a function getRandomCountry that returns a random country by calling https://restcountries.com/#endpoints-name
-// and returning a random country from the response
-// the function should be exported
-// the function should be used in the GET /countries/random endpoint
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -35,7 +31,10 @@ const getCountryByName = async (req, res) => {
     try {
         // Fetch the countries from the API
         const { name } = req.params;
-        const response = await fetch(`https://restcountries.com/v3.1//name/${name}`);
+        const URL = (0, utils_1.isCountryCode)(name) ?
+            `https://restcountries.com/v3.1/alpha/${name}` :
+            `https://restcountries.com/v3.1/name/${name}?fullText=true`;
+        const response = await fetch(URL);
         if (response.ok) {
             // Parse the JSON response
             const country = await response.json();
@@ -47,7 +46,7 @@ const getCountryByName = async (req, res) => {
         }
         else {
             // Handle non-successful response (e.g., 404 Not Found)
-            res.status(response.status).send("Failed to fetch data from the API");
+            res.status(response.status).send("Failed to fetch data from the API: " + URL);
         }
     }
     catch (error) {

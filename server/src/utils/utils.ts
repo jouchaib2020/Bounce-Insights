@@ -15,7 +15,7 @@ export function mapCountryToCountryResponse(country: Country): CountryResponse {
       numeric: {
         population: country.population,
         area: country.area,
-        gini: Object.values(country.gini)[0],
+        gini: country.gini? Object.values(country.gini)[0]: 'Unknown',
       },
       boolean: {
         landlocked: country.landlocked,
@@ -34,3 +34,19 @@ export function mapCountryToCountryResponse(country: Country): CountryResponse {
       latlng: country.latlng,
     };
   }
+
+type CountryCode = string | number;
+
+export function isCountryCode(str: CountryCode): boolean {
+  
+    // Convert to string and remove leading and trailing whitespaces
+    const countryCodeString = String(str).trim();
+  
+    // Check if the string is a country code (cca2, ccn3, or cca3) by verifying its length
+    if (countryCodeString.length <= 3) {
+      return true; // It's a country code
+    }else{
+      return false;
+    }  
+  }
+  

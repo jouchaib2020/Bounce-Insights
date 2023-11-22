@@ -1,5 +1,6 @@
+import { Demographic, General, Government } from "../utils/types"
 
-export function GeneralInfo({generalInfo}: {generalInfo: any}) {
+export function GeneralInfo({generalInfo}: {generalInfo: General}) {
   return (
     <p className="mb-2 text-gray-500 dark:text-gray-400">
         {`
@@ -15,20 +16,20 @@ export function GeneralInfo({generalInfo}: {generalInfo: any}) {
 
 
 
-export function DemoraphicsInfo({demograInfo}: {demograInfo: any}) {
+export function DemoraphicsInfo({demograInfo}: {demograInfo: Demographic}) {
     return (
       <p className="mb-2 text-gray-500 dark:text-gray-400">
           {`
       With a population of ${demograInfo.population.toLocaleString()}, the country exhibits a diverse demographic landscape. 
       The Gini coefficient, a measure of income inequality, is 
-      ${Object.keys(demograInfo.gini).length > 0 ?`${Object.values(demograInfo.gini)[0]} in ${Object.keys(demograInfo.gini)[0]} ` :'currently not available'}.
+      ${demograInfo.gini && Object.keys(demograInfo.gini).length > 0 ?`${Object.values(demograInfo.gini)[0]} in ${Object.keys(demograInfo.gini)[0]} ` :'currently not available'}.
        Understanding the demographic composition and socioeconomic factors is crucial for a comprehensive analysis of the nation's dynamics.
       `}
       </p>
     )
   }
 
-  export function GovernmentAndSymbols({governmentAndSymbols}: {governmentAndSymbols: any}) {
+  export function GovernmentAndSymbols({governmentAndSymbols}: {governmentAndSymbols: Government}) {
     return (
       <p className="mb-2 text-gray-500 dark:text-gray-400">
           {`
