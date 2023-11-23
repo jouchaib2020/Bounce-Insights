@@ -1,6 +1,7 @@
 # Ignore npm package lock files and repositories recursively
 **/package-lock.json
 **/node_modules/
+**/dist/
 
 # Ignore eventual .env and secrets
 **/.env

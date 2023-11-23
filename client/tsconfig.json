@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "cypress/integration/Accordion.cy.tsx", "cypress/integration/AccordionItem.cy.tsx", "cypress/integration/Badge.cy.tsx", "cypress/integration/DarkModeButton.cy.tsx", "cypress/integration/Badge-copy-1.cy.tsx", "cypress/integration/Dashboard.cy.tsx", "cypress/integration/Error.cy.tsx", "cypress/integration/Insights.cy.tsx", "cypress/integration/ParagraphsGeneralInfo.cy.tsx", "cypress/integration/ProgressBar.cy.tsx", "cypress/integration/Map.cy.tsx", "cypress/integration/App.cy.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
