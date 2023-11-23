@@ -12,6 +12,11 @@ export type General = {
     independent: boolean,
     status: string,
     unMember: boolean,
+    cca2: string,
+    ccn3: string,
+    cca3: string,
+    cioc: string,
+    languages: string[],
 }
 
 export type Numeric = {
@@ -35,6 +40,11 @@ export type Government = {
     capital: string,
     startOfWeek: string,
     timeZones: string[],
+    fifa: string,
+    region: string,
+    subregion: string,
+    flag: string,
+    currency: string,
 }
 
 export type CountryData = {

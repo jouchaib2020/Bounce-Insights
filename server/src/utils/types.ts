@@ -61,6 +61,11 @@ export type CountryResponse = {
         independent: boolean,
         status: string,
         unMember: boolean,
+        cca2: string,
+        ccn3: string,
+        cca3: string,
+        cioc: string,
+        languages: string[],
     },
     numeric: {
         population: number,
@@ -81,6 +86,11 @@ export type CountryResponse = {
         capital: string,
         startOfWeek: string,
         timeZones: string[],
+        fifa: string,
+        region: string,
+        subregion: string,
+        flag: string,
+        currency: string,
     },
     latlng: [number, number],
 }

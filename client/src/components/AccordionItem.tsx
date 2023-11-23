@@ -2,10 +2,6 @@ import { useState } from 'react';
 import { Demographic, General, Government } from '../utils/types';
 import { DemoraphicsInfo, GeneralInfo, GovernmentAndSymbols } from './Paragraphs';
 
-
-
-
-
 function AccordionItem({type, title, data}: {type: number, title: string, data: General | Demographic | Government}) {
     const [activeIndex, setActiveIndex] = useState<number|null>(null);
 

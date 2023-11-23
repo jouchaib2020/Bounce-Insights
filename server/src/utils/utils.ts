@@ -11,6 +11,11 @@ export function mapCountryToCountryResponse(country: Country): CountryResponse {
         independent: country.independent,
         status: country.status,
         unMember: country.unMember,
+        cca2: country.cca2,
+        ccn3: country.ccn3,
+        cca3: country.cca3,
+        cioc: country.cioc,
+        languages: Object.values(country.languages),
       },
       numeric: {
         population: country.population,
@@ -30,6 +35,11 @@ export function mapCountryToCountryResponse(country: Country): CountryResponse {
         capital: country.capital[0], // Assuming capital is an array and taking the first element
         startOfWeek: country.startOfWeek,
         timeZones: country.timezones,
+        fifa: country.fifa,
+        region: country.region,
+        subregion: country.subregion,
+        flag: country.flag,
+        currency: Object.values(Object.values(country.currencies)[0])[0] as string,
       },
       latlng: country.latlng,
     };
