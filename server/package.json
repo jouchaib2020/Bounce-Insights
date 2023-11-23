@@ -15,6 +15,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.10",
     "@types/node": "^20.9.3",
     "@types/node-fetch": "^2.6.9",
     "concurrently": "^8.2.2",
@@ -22,6 +23,7 @@
     "jest-coverage-badges": "^1.0.0",
     "nodemon": "^3.0.1",
     "supertest": "^6.3.3",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.3.2"
   },
   "jest": {
