@@ -1,5 +1,5 @@
 // constants file
-export const API_URL = 'http://localhost:3001/api';
+export const API_URL = 'https://stingray-app-pmx35.ondigitalocean.app/api';
 
 export const HIGHEST_POPULATION = 1402112000;
 
