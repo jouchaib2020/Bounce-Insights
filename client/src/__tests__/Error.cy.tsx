@@ -1,9 +1,9 @@
-import React from 'react'
-import Error from '../../src/components/Error'
+import { mount } from '@cypress/react18'
+import Error from '../components/Error'
 
 describe('<Error />', () => {
   it('renders', () => {
     // see: https://on.cypress.io/mounting-react
-    cy.mount(<Error />)
+    mount(<Error />)
   })
 })
