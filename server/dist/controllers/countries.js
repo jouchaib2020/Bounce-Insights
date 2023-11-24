@@ -26,7 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCountryByName = void 0;
 const utils_1 = require("../utils/utils");
 // mod.cjs
-const fetch = (...args) => Promise.resolve().then(() => __importStar(require('node-fetch'))).then(({ default: fetch }) => fetch(...args));
+const fetch = (...args) => Promise.resolve().then(() => __importStar(require('node-fetch'))).then(({ default: fetch }) => fetch(args));
 const getCountryByName = async (req, res) => {
     try {
         // Fetch the countries from the API

@@ -57,6 +57,11 @@ describe('mapCountryToCountryResponse', () => {
         independent: true,
         status: 'Test Status',
         unMember: true,
+        cca2: '',
+        ccn3: '',
+        cca3: '',
+        cioc: '',
+        languages: []
       },
       numeric: {
         population: 1000000,
@@ -76,6 +81,11 @@ describe('mapCountryToCountryResponse', () => {
         capital: 'Test Capital',
         startOfWeek: 'Monday',
         timeZones: ['UTC+1'],
+        fifa: '',
+        region: '',
+        subregion: '',
+        flag: '',
+        currency: ''
       },
       latlng: [0, 0],
     };

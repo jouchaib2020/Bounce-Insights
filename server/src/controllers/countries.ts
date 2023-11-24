@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { Country } from "../utils/types";
 import { isCountryCode, mapCountryToCountryResponse } from "../utils/utils";
 // mod.cjs
-const fetch = (...args: string[]) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = (...args: any) => import('node-fetch').then(({default: fetch}) => fetch(args));
 
 export const getCountryByName = async (req: Request, res: Response) => {
     try {
