@@ -2,7 +2,7 @@
 
 Welcome to the Bounce-Insights App! This application allows users to input a country, fetch information about that country, and display it in a user-friendly manner. The application consists of a React frontend and a NodeJS backend running Express.
 
-## Getting Started
+## Getting Started with app
 
 ### Visit the application online
 
